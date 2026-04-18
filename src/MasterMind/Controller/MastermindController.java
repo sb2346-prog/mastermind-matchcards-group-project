@@ -134,6 +134,16 @@ public class MastermindController implements ActionListener {
             // Player wins here then ask if they want to play again
             
             javax.swing.JOptionPane.showMessageDialog(view, "Congratulations! You guessed the code", "Game Over", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            
+            
+            String name = javax.swing.JOptionPane.showInputDialog(view, "Congratulations! You guessed the code.\nEnter your name for the leaderboard:");
+            if (name != null && !name.isEmpty()) {
+            // 2. Use your ScoreSaver to record the attempts
+            // 'attempts' should be the variable tracking how many rows were used
+            MasterMind.Model.Score mastermindScore = new MasterMind.Model.Score(name, attempts, "Mastermind");
+            MasterMind.Model.ScoreSaver.saveScore(mastermindScore);
+            }
+            
             view.getClickButton().setEnabled(false);
             // Ask the player if they want to play again
             if (javax.swing.JOptionPane.showConfirmDialog(view, "Do you want to play again?", "Play Again", javax.swing.JOptionPane.YES_NO_OPTION) == javax.swing.JOptionPane.YES_OPTION) {

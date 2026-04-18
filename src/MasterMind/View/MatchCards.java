@@ -241,10 +241,21 @@ public class MatchCards extends JPanel{
         if (correctCount == pairsNeeded){
             gameReady = false;
             gameTimer.stop();
+
+            // Ask for name of player for the leaderboard
+            String name = JOptionPane.showInputDialog(this, "Enter your name for the leaderboard");
+            if (name != null && !name.isEmpty()) {
+                MasterMind.Model.ScoreSaver.saveScore(new MasterMind.Model.Score(name, errorCount, "Memory Match"));
+            }
+
             
             double finalTime = (System.nanoTime() - startTime)/1000000000.0;
             timeLabel.setText(String.format("Final Time: %.2f s", finalTime));
             textLabel.setText("You win! Errors: " + errorCount);
+
+
+
+
         }
     }
 
