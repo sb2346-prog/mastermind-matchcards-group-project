@@ -102,7 +102,22 @@ public class SelectionProcess extends JFrame{
         }
     }
     public static void main(String[] args){
-        SwingUtilities.invokeLater(() -> new SelectionProcess());
+        try {
+        // 1. Force the driver to load (The Fix for the "No Suitable Driver" error)
+        Class.forName("org.sqlite.JDBC");
+        
+        // 2. Initialize the table
+        MasterMind.Model.ScoreSaver.initializeDatabase();
+        
+        // 3. Launch the GUI
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            new SelectionProcess(); 
+        });
+        
+    } catch (ClassNotFoundException e) {
+        System.err.println("Database Driver missing! Check Referenced Libraries.");
+    }
+    
     }
 
 

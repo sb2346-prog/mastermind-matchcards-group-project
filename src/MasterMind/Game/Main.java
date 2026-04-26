@@ -1,5 +1,7 @@
 package MasterMind.Game;
 
+import javax.swing.SwingUtilities;
+
 import MasterMind.Controller.MastermindController;
 import MasterMind.Model.Model;
 import MasterMind.View.*;
@@ -7,6 +9,13 @@ import MasterMind.View.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         // Start the model, view and controller for the game
+
+        MasterMind.Model.ScoreSaver.initializeDatabase();
+
+        SwingUtilities.invokeLater(() -> {
+        new SelectionProcess(); 
+    });
+    
         Model model = new Model();
         UserInterface view = new UserInterface();
         MastermindController controller = new MastermindController(model, view);

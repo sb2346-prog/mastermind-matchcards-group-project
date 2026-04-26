@@ -14,5 +14,8 @@ public class Score implements java.io.Serializable {
         this.gamemode = mode;
     }
 
-    
+    public String getPlayerName() { return playername; }
+    public int getScore() { return score; }
+    public String getGameMode() { return gamemode; }
+
 }
