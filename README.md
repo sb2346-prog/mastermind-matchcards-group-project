@@ -20,6 +20,7 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 ## MY CONTRIBUTIONS
 This was a collaborative group project. My main contribution was to develop and create software tests for the application. I created tests for the Matchcards and Mastermind usability as well as functionality. 
 The tests I contributed include:
--MatchCardsTest.java
--MasterMindTest.java
--UsabillityTests.java
+
+MatchCardsTest.java
+MasterMindTest.java
+UsabillityTests.java
